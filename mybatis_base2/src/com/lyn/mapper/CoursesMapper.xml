@@ -26,7 +26,7 @@
         select * from t_student where id in (select fk_stu_id from t_stu_cou where fk_cou_id=#{id})
      </select>
 
-    <select id="findCouAndStu" resultMap="couAndStu">
+    <select id="findCouAndStuByCourseId" resultMap="couAndStu">
         select * from t_courses where id=#{id}
     </select>
 </mapper>

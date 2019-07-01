@@ -19,7 +19,7 @@ public interface CoursesMapper {
      * @param id
      * @return
      */
-    public Courses findCouAndStu(int id);
+    public Courses findCouAndStuByCourseId(int id);
 
 
 }

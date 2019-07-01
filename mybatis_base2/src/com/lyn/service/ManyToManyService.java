@@ -30,7 +30,7 @@ public class ManyToManyService {
     private static void findStudentByCourses() {
         SqlSession session = DBTools.getSession();
         CoursesMapper cm = session.getMapper(CoursesMapper.class);
-        Courses cb = cm.findCouAndStu(2);
+        Courses cb = cm.findCouAndStuByCourseId(2);
         System.out.println(cb);
     }
 
