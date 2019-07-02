@@ -72,7 +72,8 @@ public class MybatisTest {
         SqlSession session = getSession();
         UserMapper mapper = session.getMapper(UserMapper.class);
         try {
-            User user = mapper.selectUserById(2);
+//            User user = com.com.selectUserById(2);
+            User user = mapper.selectUserById2(2, "updatename");
             System.out.println(user.toString());
 
             session.commit();
@@ -100,9 +101,29 @@ public class MybatisTest {
         }
     }
 
+    private static void updateUserById(Integer id) {
+        SqlSession session = getSession();
+        UserMapper mapper = session.getMapper(UserMapper.class);
+        try {
+            User newUser = new User();
+            newUser.setUsername("updatename");
+            newUser.setAccount(100.0);
+            newUser.setPassword("sssssa");
+            newUser.setId(3);
+//            com.com.updateUser(newUser);
+            mapper.updateUser2(newUser);
+            session.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.rollback();
+        }
+    }
+
     public static void main(String[] args) {
-        insertUser();
+//        insertUser();
 //        deleteUser();
+//        updateUserById(2);
         selectUserById();
 //        selectAllUser();
     }

@@ -25,7 +25,7 @@
 
     <mappers>
         <!-- 告知映射文件方式1，一个一个的配置
-     <resource.mybatis.mapper resource="com/cy/mybatis/resource.mybatis.mapper/UserMapper.xml"/>-->
+     <resource.com.com.com.com resource="com/cy/com.com/resource.com.com.com.com/UserMapper.xml"/>-->
         <!-- 告知映射文件方式2，自动扫描包内的Mapper接口与配置文件 -->
         <package name="com/lyn/mapper"/>
     </mappers>

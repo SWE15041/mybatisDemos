@@ -18,16 +18,40 @@
         insert into t_user (username,password,account) values (#{username},#{password},#{account})
     </insert>
 
-    <update id="updateUser" >
+    <update id="updateUser">
       update t_user set username=#{username},password=#{password},account=#{account} where id=#{id}
     </update>
+    <update id="updateUser2">
+        UPDATE t_user
+        <set>
+            <if test="username!=null and username != ''">
+                username = #{username},
+            </if>
+            <if test="password!=null and password != ''">
+                password=#{password},
+            </if>
+            <if test="account!=null and account != ''">
+                account=#{account}
+            </if>
+        </set>
+        <where>
+            <if test="id!=null and id != ''">
+                id=#{id}
+            </if>
+        </where>
 
+    </update>
     <delete id="deleteUser" parameterType="int">
      delete from t_user where id=#{id}
     </delete>
 
     <select id="selectUserById" parameterType="int" resultMap="userMap">
      select * from t_user where id=#{id}
+    </select>
+    <select id="selectUserById2"  resultMap="userMap">
+--      select * from t_user where id=#{id} and username=#{username}
+          select * from t_user where id=#{0} and username=#{1}
+
     </select>
 
     <select id="selectAllUser" resultMap="userMap">
